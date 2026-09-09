@@ -188,3 +188,5 @@ data/curated/
 # Databestanden
 *.db
 *.db-journal
+
+config.yaml
