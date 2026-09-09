@@ -1,0 +1,34 @@
+# config.example.yaml - kopieer naar config.yaml en vul de werkelijke waarden in.
+# Bron-URL's, throttling, time-outs, retry-instellingen en random_seed
+# bevorderen reproduceerbaarheid (zie PvA §5).
+
+random_seed: 42
+
+sources:
+  freesound:
+    base_url: "https://freesound.org/apiv2"
+    api_key: ""                        # geheime sleutel (niet committen)
+    throttle_seconds: 2
+    timeout_seconds: 30
+    max_retries: 3
+    backoff_factor: 2
+  wikimedia_commons:
+    base_url: "https://commons.wikimedia.org"
+    user_agent: "Data3Project/1.0 (contact@example.com)"
+    session_cookie: ""                 # dedicated account (niet committen)
+    throttle_seconds: 2
+    timeout_seconds: 30
+    max_retries: 3
+    backoff_factor: 2
+  musicbrainz:
+    dump_url: ""
+    postgres_host: "localhost"
+    postgres_port: 5432
+    postgres_user: ""
+    postgres_password: ""
+    postgres_database: "musicbrainz"
+
+pipeline:
+  dataset_version: "v1"
+  max_records:
+    wikimedia_commons: 300
